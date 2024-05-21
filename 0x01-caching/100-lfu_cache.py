@@ -19,10 +19,13 @@ class LFUCache(BaseCaching):
     def put(self, key, item):
         """ Add an item in the cache
         If key or item is None, this method should not do anything.
-        If the number of items in self.cache_data is higher than BaseCaching.MAX_ITEMS:
+        If the number of items in
+        self.cache_data is higher than BaseCaching.MAX_ITEMS:
         you must discard the least frequency used item (LFU algorithm)
-        if you find more than 1 item to discard, you must use the LRU algorithm to discard only the least recently used
-        you must print DISCARD: with the key discarded and following by a new line
+        if you find more than 1 item to discard,
+        you must use the LRU algorithm to discard only the least recently used
+        you must print DISCARD:\
+                with the key discarded and following by a new line
         """
         if key is None or item is None:
             return
@@ -32,7 +35,9 @@ class LFUCache(BaseCaching):
             self.freq_map[key] += 1
         else:
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-                min_freq_keys = [key for key in self.cache_data if self.freq_map[key] == self.min_freq]
+                min_freq_keys = [
+                        key for key in self.cache_data
+                        if self.freq_map[key] == self.min_freq]
                 if len(min_freq_keys) > 1:
                     lru_key = min_freq_keys[0]
                     for k in min_freq_keys:
@@ -52,7 +57,8 @@ class LFUCache(BaseCaching):
 
     def get(self, key):
         """ Get an item by key
-        If key is None or if the key doesn’t exist in self.cache_data, return None.
+        If key is None or if the key doesn’t\
+                exist in self.cache_data, return None.
         """
         if key is None or key not in self.cache_data:
             return None

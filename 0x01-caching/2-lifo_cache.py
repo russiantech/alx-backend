@@ -18,14 +18,17 @@ class LIFOCache(BaseCaching):
     def put(self, key, item):
         """ Add an item in the cache
         If key or item is None, this method should not do anything.
-        If the number of items in self.cache_data is higher than BaseCaching.MAX_ITEMS:
+        If the number of items in self.cache_data\
+            is higher than BaseCaching.MAX_ITEMS:
         you must discard the last item put in cache (LIFO algorithm)
-        you must print DISCARD: with the key discarded and following by a new line
+        you must print DISCARD:\
+            with the key discarded and following by a new line
         """
         if key is None or item is None:
             return
 
-        if key not in self.cache_data and len(self.cache_data) >= BaseCaching.MAX_ITEMS:
+        if key not in self.cache_data and
+        len(self.cache_data) >= BaseCaching.MAX_ITEMS:
             if self.last_key:
                 print(f"DISCARD: {self.last_key}")
                 del self.cache_data[self.last_key]
@@ -35,7 +38,8 @@ class LIFOCache(BaseCaching):
 
     def get(self, key):
         """ Get an item by key
-        If key is None or if the key doesn’t exist in self.cache_data, return None.
+        If key is None or if the key doesn’t\
+            exist in self.cache_data, return None.
         """
         return self.cache_data.get(key, None)
 

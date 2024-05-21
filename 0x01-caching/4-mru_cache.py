@@ -18,9 +18,11 @@ class MRUCache(BaseCaching):
     def put(self, key, item):
         """ Add an item in the cache
         If key or item is None, this method should not do anything.
-        If the number of items in self.cache_data is higher than BaseCaching.MAX_ITEMS:
+        If the number of items in self.cache_data\
+                is higher than BaseCaching.MAX_ITEMS:
         you must discard the most recently used item (MRU algorithm)
-        you must print DISCARD: with the key discarded and following by a new line
+        you must print DISCARD:\
+                with the key discarded and following by a new line
         """
         if key is None or item is None:
             return
@@ -37,7 +39,8 @@ class MRUCache(BaseCaching):
 
     def get(self, key):
         """ Get an item by key
-        If key is None or if the key doesn’t exist in self.cache_data, return None.
+        If key is None or if the key doesn’t\
+                exist in self.cache_data, return None.
         """
         if key is None or key not in self.cache_data:
             return None
